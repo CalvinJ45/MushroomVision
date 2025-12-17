@@ -192,20 +192,23 @@ Model dapat mengidentifikasi berbagai jenis jamur, termasuk (tidak terbatas pada
 
 ## 🌐 Deployment
 
-### Frontend (Vercel/Netlify)
+### Live Demo
+- **URL:** [https://mushroom-vision-phi.vercel.app/](https://mushroom-vision-phi.vercel.app/)
 
-```bash
-cd computervision
-npm run build
-# Deploy folder 'dist' ke Vercel/Netlify
-```
+### Frontend (Vercel)
+Sudah ter-deploy secara otomatis.
 
-### Backend (Render/Railway)
+### Backend (Railway)
+**Status:** Active (Trial Mode)
 
-1. Connect GitHub repository
-2. Set build command: `cd backend && pip install -r requirements.txt`
-3. Set start command: `cd backend && python app.py`
-4. Pastikan model files tersedia (Git LFS akan otomatis ter-download)
+> [!WARNING]
+> **Masa Berlaku Deployment Backend:**
+> Backend deployment di Railway menggunakan **Trial Plan** yang akan berakhir dalam **30 hari**.
+>
+> **Jika deployment mati/trial habis:**
+> 1. Gunakan opsi **Jalankan Lokal** menggunakan `run.bat` di laptop Anda.
+> 2. `run.bat` sudah diupdate untuk otomatis menginstall semua dependencies yang diperlukan.
+> 3. Aplikasi akan berjalan 100% normal di localhost.
 
 ## ⚠️ Important Notes
 
