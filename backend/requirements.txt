@@ -5,6 +5,6 @@ numpy
 scikit-image
 scikit-learn
 joblib
-tensorflow
+tensorflow-cpu
 pillow
 requests
