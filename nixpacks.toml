@@ -1,8 +1,8 @@
 [phases.setup]
-nixPkgs = ["python39", "git", "git-lfs"]
+nixPkgs = ["python39", "git", "curl"]
 
 [phases.install]
-cmds = ["git lfs install", "git lfs pull", "cd backend && pip install -r requirements.txt"]
+cmds = ["curl -L -o backend/best_mushroom_cnn.keras https://github.com/CalvinJ45/MushroomVision/raw/main/backend/best_mushroom_cnn.keras", "cd backend && pip install -r requirements.txt"]
 
 [start]
 cmd = "cd backend && python app.py"
