@@ -1,0 +1,46 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+venv/
+ENV/
+.venv
+
+# Model files (JIKA pakai Opsi B - cloud storage)
+# Uncomment jika model disimpan di cloud
+# *.keras
+# *.joblib
+
+# Frontend
+computervision/node_modules/
+computervision/dist/
+computervision/.vite/
+
+# Test folders (exclude, hanya butuh hasil final)
+FIRST TEST/
+SECOND TEST/
+THIRD TEST/
+ONSITE TESTING/
+
+# Dataset zip
+*.zip
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+
+# Backend
+backend/__pycache__/
+*.pyc

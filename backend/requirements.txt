@@ -1,0 +1,9 @@
+flask
+flask-cors
+opencv-python
+numpy
+scikit-image
+scikit-learn
+keras
+tensorflow
+joblib
