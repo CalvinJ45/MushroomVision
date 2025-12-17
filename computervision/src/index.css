@@ -1,0 +1,29 @@
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap');
+
+:root {
+  --primary: #15803d;      
+  --primary-light: #dcfce7; 
+  --primary-text: #166534; 
+  --dark: #1c1917;        
+  --bg-color: #fdfdfa;   
+  --bg-gradient: linear-gradient(135deg, #f0fdf4 0%, #fefce8 100%); 
+  --text-main: #111827;
+  --text-muted: #4b5563;
+  --border: #f3f4f6;
+  --radius-btn: 50px;
+  --radius-card: 20px;
+  --shadow-card: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+}
+
+body {
+  margin: 0;
+  font-family: 'Plus Jakarta Sans', sans-serif; 
+  background: var(--bg-gradient);
+  color: var(--text-main);
+  min-height: 100vh;
+}
+
+button {
+  font-family: inherit;
+  cursor: pointer;
+}
