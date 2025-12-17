@@ -7,3 +7,4 @@ scikit-learn
 joblib
 tensorflow==2.13.1
 pillow
+requests

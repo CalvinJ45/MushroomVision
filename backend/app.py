@@ -5,6 +5,7 @@ os.environ["TF_USE_LEGACY_KERAS"] = "0"
 import cv2
 import numpy as np
 import joblib
+import requests  # Added for runtime download
 from skimage.feature import graycomatrix, graycoprops, hog, local_binary_pattern
 from flask import Flask, request, jsonify
 from flask_cors import CORS
@@ -28,6 +29,38 @@ BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 MODEL_PATH = os.path.join(BASE_DIR, "best_mushroom_cnn.keras")
 SCALER_PATH = os.path.join(BASE_DIR, "mushroom_scaler_2.joblib")
 LE_PATH = os.path.join(BASE_DIR, "mushroom_le_2.joblib")
+
+# --- Runtime Model Check & Download ---
+def check_and_download_model():
+    """Checks if the model file is valid (size check). If not, downloads from GitHub."""
+    print(f"Checking model at: {MODEL_PATH}")
+    download_needed = False
+    
+    if not os.path.exists(MODEL_PATH):
+        print("Model file missing.")
+        download_needed = True
+    else:
+        size_mb = os.path.getsize(MODEL_PATH) / (1024 * 1024)
+        print(f"Model file size: {size_mb:.2f} MB")
+        if size_mb < 50: # Real model is ~227MB. Pointers are <1KB.
+            print("Model file too small (likely LFS pointer).")
+            download_needed = True
+            
+    if download_needed:
+        print("Initiating runtime download from GitHub...")
+        url = "https://github.com/CalvinJ45/MushroomVision/raw/main/backend/best_mushroom_cnn.keras"
+        try:
+            with requests.get(url, stream=True) as r:
+                r.raise_for_status()
+                with open(MODEL_PATH, 'wb') as f:
+                    for chunk in r.iter_content(chunk_size=8192):
+                        f.write(chunk)
+            print("Download complete.")
+        except Exception as e:
+            print(f"FATAL: Failed to download model: {e}")
+
+# Call check before loading
+check_and_download_model()
 
 # --- Load Artifacts ---
 print("Loading model and artifacts...")
